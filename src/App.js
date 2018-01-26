@@ -18,6 +18,12 @@ const browserHistory = BrowserHistory();
 let store = applyMiddleware(save())(createStore)(appReducer,load());
 
 class App extends Component {
+  componentDidMount () {
+    var self = this;
+    window.onresize = function (evt) {
+      self.forceUpdate();
+    };
+  }
   handleFavorites () {
     browserHistory.push('/myalbums');
   }
@@ -27,6 +33,7 @@ class App extends Component {
     }
   }
   render() {
+    let isSmallScreen = !window.matchMedia('(min-width : 745px)').matches;
     let styles = {
       searchBarContainer : {
         width : '80vw',
@@ -36,7 +43,8 @@ class App extends Component {
         padding : '20px 0px'
       },
       buttonContainer : {
-        float : 'right',
+        float : isSmallScreen?null:'right',
+        textAlign : 'right',
         padding : '20px 10px'
       },
       heart : {

@@ -21,6 +21,11 @@ function appReducer (state = initialState, action) {
         newState.albums.splice(RemoveIndex,1);
       }
       return newState;
+    case '@@redux/INIT' : 
+      if (!newState.albums) {
+        newState.albums = [];
+      }
+      return newState;
     default :
       return newState;
   }
