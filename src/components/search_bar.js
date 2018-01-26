@@ -99,7 +99,7 @@ class SearchBar extends React.Component {
         boxSizing : 'border-box',
         padding : '0px 15px',
         marginTop : (this.props.match.isExact && this.props.match.path === '/')?
-          '50vh':'0',
+          '20vh':'0',
         transition : 'all 300ms ease-in-out',
         boxShadow : this.state.focused?'0px 6px 34px -7px rgba(59, 176, 255, 0.67)':'0px 0px 0px 0px  rgba(59, 176, 255, 0.67)'
       },
